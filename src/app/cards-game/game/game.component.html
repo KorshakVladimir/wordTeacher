@@ -1,0 +1,31 @@
+<app-back-button address="/card-game"></app-back-button>
+
+<mat-card>
+  {{wordToShow}}
+</mat-card>
+<mat-card *ngIf="showTranslation">
+    {{translation}}
+</mat-card>
+<a
+  class="show-btn"
+  *ngIf="!showTranslation"
+  mat-raised-button
+  color="accent"
+  (click)="showTranslation=true">
+  Show
+</a>
+<a
+  *ngIf="!showTranslation"
+  mat-raised-button
+  color="accent"
+  (click)="markAsLearned()">
+  Learn
+</a>
+<br>
+<a
+  *ngIf="showTranslation"
+  mat-raised-button
+  color="accent"
+  (click)="getWord()">
+  Next
+</a>

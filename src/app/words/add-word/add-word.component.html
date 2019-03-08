@@ -1,0 +1,42 @@
+
+<app-back-button address="/"></app-back-button>
+<h3>Add Word</h3>
+<form [formGroup]="addWordForm"
+      (ngSubmit)="onSubmit()">
+
+  <mat-form-field>
+    <input matInput
+           placeholder="Word"
+           formControlName="word_name"
+    >
+    <button mat-button
+            type="button"
+            *ngIf="addWordForm.get('word_name').value"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="addWordForm.patchValue({word_name: ''})">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Translation" formControlName="translation" >
+    <button mat-button
+            type="button"
+            *ngIf="addWordForm.get('translation').value"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="addWordForm.patchValue({translation: ''})">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button mat-raised-button
+          color="success"
+          type="submit">
+    Add Word
+  </button>
+
+</form>
